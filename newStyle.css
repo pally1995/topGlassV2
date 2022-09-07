@@ -106,6 +106,7 @@ i {
 
 .navbar-links.active {
 	display: flex;
+        transition: transform 450ms ease-in-out;
 }
 
 .navbar-links ul {

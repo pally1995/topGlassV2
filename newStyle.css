@@ -54,6 +54,7 @@ table {
 	border-spacing: 0;
 }
 
+
 /* Main Styling  */
 
 body {
@@ -91,11 +92,66 @@ i {
 
 .navbar {
 	display: flex;
-	position: relative;
 	flex-direction: column;
-	align-items: flex-start;
 	color: black;
 }
+
+.nav__toggle {
+	position: absolute;
+	right: -2rem;
+	top: 7rem;
+	transform: translateX(-100%);
+	padding: 1em .5em;
+	border: 0;
+	border-radius: .25em 0 0 .25em;
+	background-color: white;
+  }
+
+.hamburger {
+  display: block;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 2em;
+  height: 3px;
+  background: black;
+
+  transition: transform 450ms ease-in-out, opacity 200ms linear;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+} 
+
+.hamburger::before { bottom: 6px; }
+.hamburger::after { top: 6px; }
+
+
+/* Navigation open styles */
+
+.nav-open .nav {
+  transform: translateX(0);
+}
+
+/* Change this stuff below */
+
+.nav-open .hamburger {
+  transform: rotate(400deg);
+}
+
+.nav-open .hamburger::before {
+  opacity: 0;
+}
+
+.nav-open .hamburger::after {
+  transform: rotate(95deg) translate(-6px);
+}
+
 
 .navbar-links {
 	display: none;
@@ -106,7 +162,7 @@ i {
 
 .navbar-links.active {
 	display: flex;
-        transition: transform 450ms ease-in-out;
+    transition: transform 450ms ease-in-out;
 }
 
 .navbar-links ul {
@@ -135,61 +191,3 @@ i {
 	color: #075da9;
 }
 
-.nav__toggle {
-	position: relative;
-	top: 2em;
-	left: 0;
-	transform: translateX(-100%);
-	background: black;
-	padding: 1em .5em;
-	border: 0;
-	border-radius: .25em 0 0 .25em;
-  }
-
-.hamburger {
-  display: block;
-  position: absolute;
-  left: 27rem;
-  bottom: 5.5rem; 
-}
-
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  width: 2em;
-  height: 3px;
-  background: black;
-  
-  transition: transform 450ms ease-in-out, opacity 200ms linear;
-}
-
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  position: absolute;
-  left: 0;
-}
-
-.hamburger::before { bottom: 6px; }
-.hamburger::after { top: 6px;}
-
-
-/* Navigation open styles */
-
-.nav-open .nav {
-  transform: translateX(0);
-}
-
-/* Change this stuff below */
-
-.nav-open .hamburger {
-  transform: rotate(405deg);
-}
-
-.nav-open .hamburger::before {
-  opacity: 0;
-}
-
-.nav-open .hamburger::after {
-  transform: rotate(90deg) translate(-6px);
-}

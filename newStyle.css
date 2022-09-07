@@ -133,20 +133,48 @@ i {
 	background-color: #555;
 }
 
-.toggle-button {
-	position: absolute;
-	top: .75rem;
-	right: 1rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	width: 30px;
-	height: 21px;
+.hamburger {
+  display: block;
+  position: relative;
 }
 
-.toggle-button > span {
-	height: 3px;
-	width: 100%;
-	background-color: black;
-	border-radius: 10px;
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 2em;
+  height: 3px;
+  background: var(--clr-dark);
+  
+  transition: transform 450ms ease-in-out, opacity 200ms linear;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before { bottom: 6px; }
+.hamburger::after { top: 6px;}
+
+
+/* Navigation open styles */
+
+.nav-open .nav {
+  transform: translateX(0);
+}
+
+/* Change this stuff below */
+
+.nav-open .hamburger {
+  transform: rotate(405deg);
+}
+
+.nav-open .hamburger::before {
+  opacity: 0;
+}
+
+.nav-open .hamburger::after {
+  transform: rotate(85deg) translate(-6px);
 }

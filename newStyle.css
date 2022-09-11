@@ -70,6 +70,8 @@ body {
 	width: 100vw;
 	height: auto;
 	background: #075da9;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 i {
@@ -208,6 +210,7 @@ footer {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	border-radius: 5px;
 }
 
 .footerSiteLinks {
@@ -221,7 +224,7 @@ footer {
 	display: inline-flex;
 }
 
-.footerSiteLinks Li::after {
+.footerSiteLinks Li:nth-last-child(n + 2):after {
 	content: "|";
 	margin-left: 2rem;
 }
@@ -235,4 +238,30 @@ footer {
 
 address {
 	flex-basis: 100%;
+	letter-spacing: 0.1rem;
+	line-height: 1.5rem;
+}
+
+hr{
+	margin: 1rem 0;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}
+
+address >  strong {
+	font-size: 1.5rem;
+}
+
+.addressTitle, .emailTitle, .contactTitle {
+	display: inline-block;
+	padding: 1rem 0 1rem 0;
+}
+
+address a {
+	color: white;
+}
+
+.officeHours {
+	margin: 1rem 0;
 }

@@ -1,4 +1,4 @@
-html, * {
+ html, * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -624,6 +624,4 @@ footer>p {
         height: 18rem; 
         width: auto;
     }
-    
-    
 }

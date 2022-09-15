@@ -55,7 +55,7 @@ table {
 }
 
 
-/* Main Styling  */
+/* Template Styling  */
 
 body {
 	font-family: 'Titillium Web', sans-serif;
@@ -92,81 +92,98 @@ i {
 	height: auto;
 }
 
-.navbar {
+div.navbar-links {
 	display: flex;
 	flex-direction: column;
 	color: black;
-	background-color: #f8f9fa; 
+	background-color: #f8f9fa;
+	transition: opacity 300ms, visibility 300ms, height 300ms;
 }
 
- .nav__toggle {
+div.navbar-links.active {
+	opacity: 1;
+	visibility: visiible;
+	height: 11rem;
+}
+
+.nav__toggle {
 	position: absolute;
 	right: -2rem;
 	top: 7.5rem;
 	transform: translateX(-100%);
 	padding: 1em .5em;
 	border: 0;
-	background-color: white;
-  }
+	background-color: #f8f9fa;
+}
 
 .hamburger {
-  display: block;
-  position: relative;
+	display: block;
+	position: relative;
 }
 
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-  width: 2em;
-  height: 3px;
-  background: black;
+	width: 2em;
+	height: 3px;
+	background: black;
 
-  transition: transform 450ms ease-in-out, opacity 250ms;
+	transition: ease-in-out transform 450ms ease-in-out, opacity 250ms;
 }
 
 .hamburger::before,
 .hamburger::after {
-  content: '';
-  position: absolute;
-  left: 0;
-} 
+	content: '';
+	position: absolute;
+	left: 0;
+}
 
-.hamburger::before { bottom: 6px; }
-.hamburger::after { top: 6px; }
+.hamburger::before {
+	bottom: 6px;
+}
+
+.hamburger::after {
+	top: 6px;
+}
 
 
 /* Navigation open styles */
 
 .nav-open .nav {
-  transform: translateX(0);
-  
+	transform: translateX(0);
+
 }
 
 /* Change this stuff below */
 
 .nav-open .hamburger {
-  transform: rotate(405deg);
+	transform: rotate(405deg);
 }
 
 .nav-open .hamburger::before {
-  opacity: 0;
+	opacity: 0;
 }
 
 .nav-open .hamburger::after {
-  transform: rotate(90deg) translate(-6px);
-  
-} 
+	transform: rotate(90deg) translate(-6px);
+
+}
 
 .navbar-links {
-	display: none;
+	display: flex;
+	opacity: 0;
+	visibility: 0;
+	height: 0;
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	transition: opacity 250ms, visibility 250ms, height 250ms;
 }
 
-
 .navbar-links.active {
-	display: flex;
+	opacity: 1;
+	visibility: visiible;
+	height: auto;
 }
 
 
@@ -189,7 +206,6 @@ i {
 	display: flex;
 	text-decoration: none;
 	color: black;
-	/* font-weight: 700; */
 	padding: 0.6rem;
 }
 
@@ -200,6 +216,34 @@ i {
 .tranLogo {
 	width: 100%;
 	height: auto;
+}
+
+.buttonDiv {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.getInTouchBtn {
+	text-decoration: none;
+	background: #075da9;
+	border: none;
+	width: 50vw;
+	padding: 1rem 1.2rem;
+	border-radius: 30px;
+	color: white;
+	font-size: 1rem;
+	text-align: center;
+	margin: 1rem 0;
+	font-weight: 800;
+}
+
+.getInTouchBtn:hover {
+	cursor: pointer;
+	background: white;
+	color: #075da9;
+	border: solid 2px #075da9;
+	font-weight: 800;
 }
 
 footer {
@@ -220,15 +264,9 @@ footer {
 
 .footerSiteLinks li {
 	width: 25%;
-	margin: 0.75rem;
+	margin: 0.5rem;
 	display: inline-flex;
 }
-
-.footerSiteLinks Li:nth-last-child(n + 2):after {
-	content: "|";
-	margin-left: 2rem;
-}
-
 
 .footerSiteLinks a {
 	text-decoration: none;
@@ -236,20 +274,26 @@ footer {
 	cursor: pointer;
 }
 
+.footerSiteLinks Li:nth-last-child(n + 2):after {
+	content: "|";
+	margin-left: 1.5rem;
+}
+
+
 address {
 	flex-basis: 100%;
 	letter-spacing: 0.1rem;
 	line-height: 1.5rem;
 }
 
-hr{
+hr {
 	margin: 1rem 0;
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+	border: 0;
+	height: 1px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
 }
 
-address >  strong {
+address>strong {
 	font-size: 1.5rem;
 }
 
@@ -263,5 +307,75 @@ address a {
 }
 
 .officeHours {
+	display: inline-block;
+	flex-basis: 100%;
 	margin: 1rem 0;
+}
+
+.officeHours p strong {
+	display: inline-block;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.operatingLocations {
+	display: inline-block;
+	flex-basis: 100%
+}
+
+.operatingLocations li {
+	margin-bottom: 0.5rem;
+
+}
+
+@media screen and (min-width: 768px){
+
+	* {
+		transition: none !important;
+	}
+
+	.hamburger {
+		display: none;
+	}
+
+	nav {
+		background: #f8f9fa;
+	}
+
+	.navbar-links {
+		width: 100%;
+		opacity: 10;
+		visibility: visible;
+		height: auto;
+	}
+
+	.navbar-links ul {
+		position: relative;
+		bottom: 3.5rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		margin: 0 2.5rem 0 2.5rem;
+	}
+
+	div.navbar-links {
+		background: white;
+	}
+	
+	.footerSiteLinks li {
+		width: 15%;
+		/* margin: 0.5rem; */
+		display: inline-flex;
+	}
+	
+	.footerSiteLinks a {
+		text-decoration: none;
+		color: white;
+		cursor: pointer;
+	}
+	
+	.footerSiteLinks Li:nth-last-child(n + 2):after {
+		content: "|";
+		/* margin-left: 1.5rem; */
+	}
 }

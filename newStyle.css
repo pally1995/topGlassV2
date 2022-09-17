@@ -228,7 +228,7 @@ div.navbar-links.active {
 	text-decoration: none;
 	background: #075da9;
 	border: none;
-	width: 50vw;
+	width: 15rem;
 	padding: 1rem 1.2rem;
 	border-radius: 30px;
 	color: white;
@@ -258,6 +258,9 @@ footer {
 }
 
 .footerSiteLinks {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap; 
 	flex-basis: 100%;
 	margin-bottom: 1rem;
 }
@@ -276,7 +279,7 @@ footer {
 
 .footerSiteLinks Li:nth-last-child(n + 2):after {
 	content: "|";
-	margin-left: 1.5rem;
+	margin-left: 2rem;
 }
 
 
@@ -361,10 +364,9 @@ address a {
 	div.navbar-links {
 		background: white;
 	}
-	
+
 	.footerSiteLinks li {
 		width: 15%;
-		/* margin: 0.5rem; */
 		display: inline-flex;
 	}
 	
@@ -373,9 +375,21 @@ address a {
 		color: white;
 		cursor: pointer;
 	}
+
+	.footerSiteLinks a:hover{
+		text-decoration: underline;
+	}
 	
 	.footerSiteLinks Li:nth-last-child(n + 2):after {
-		content: "|";
-		/* margin-left: 1.5rem; */
+		content: "|";	
 	}
+
+	.operatingLocations li {
+		display: inline-flex;
+		justify-content: space-evenly;
+		margin: 2rem;
+		flex-wrap: wrap;
+	}
+
 }
+

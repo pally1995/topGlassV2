@@ -113,7 +113,7 @@ div.navbar-links.active {
 	transform: translateX(-100%);
 	padding: 1em .5em;
 	border: 0;
-	background-color: #f8f9fa;
+	background-color: white;
 }
 
 .hamburger {
